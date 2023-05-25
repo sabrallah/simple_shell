@@ -12,30 +12,34 @@ int execute_command(char **args)
 
 	if (strcmp(args[0], "exit") == 0)
 	{
+		free_char_array(args); /* Free memory allocated for args */
 		exit(0);
 	}
 	pid = fork();
 	if (pid == 0)
-	{execvp(args[0], args);
+	{
+		execvp(args[0], args);
 		if (errno == ENOENT)
-		{char *path_env = getenv("PATH");
-		char *path = strtok(path_env, ":");
+		{
+			char *path_env = getenv("PATH");
+			char *path = strtok(path_env, ":");
 
 			while (path != NULL)
-			{char *command_path = malloc(strlen(path) + strlen(args[0]) + 2);
-
+			{
+				char *command_path = malloc(strlen(path) + strlen(args[0]) + 2);
 				sprintf(command_path, "%s/%s", path, args[0]);
 				execv(command_path, args);
-				free(command_path); /* Free memory allocated by malloc */
+				free(command_path);
 				path = strtok(NULL, ":");
 			}
-		fprintf(stderr, "hsh: command not found: %s\n", args[0]);
+			fprintf(stderr, "hsh: command not found: %s\n", args[0]);
 		}
 		else
 		{
 			perror("hsh");
 		}
-	exit(1);
+		free_char_array(args); /* Free memory allocated for args */
+		exit(1);
 	}
 	else if (pid < 0)
 	{
@@ -43,9 +47,13 @@ int execute_command(char **args)
 	}
 	else
 	{
-		do {
+		do
+		{
 			waitpid(pid, &status, WUNTRACED);
 		} while (!WIFEXITED(status) && !WIFSIGNALED(status));
 	}
-	return (1);
+
+	free_char_array(args); /* Free memory allocated for args */
+	return 1;
 }
+

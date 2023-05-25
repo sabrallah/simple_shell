@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * my_execommndewithexecve - tqsqddsd it
+ * my_execmdwithexecve - tqsqddsd it
  * @commnde: the sdsdsldls execute
  * @wordArray: arr qsdlkqsd commands
  * Return: void

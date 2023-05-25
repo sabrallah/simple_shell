@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * my_cmp_str - Comparing chracter string
+ * my_cmp_strn - Comparing chracter string
  * @one:first character
  * @two: last character
  * Return: int
  */
-int my_cmp_str(const char *one, const char *two)
+int my_cmp_strn(const char *one, const char *two)
 {
 	while (*one == *two && *one != '\0')
 	{

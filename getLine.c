@@ -19,7 +19,7 @@ FILE *reading)
 	else
 		return (-1);
 
-	strg = malloc(strg_SIZE * sizeof(char));
+	strg = malloc(STORAGE_SIZE * sizeof(char));
 	if (strg == NULL)
 		return (-1);
 
@@ -31,7 +31,7 @@ FILE *reading)
 			exit(EXIT_SUCCESS);
 		}
 
-		if (starInpt >= strg_SIZE)
+		if (starInpt >= STORAGE_SIZE)
 			strg = my_re_allocation(strg, starInpt + 1);
 		strg[starInpt++] = currentC;
 	}

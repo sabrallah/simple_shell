@@ -17,12 +17,12 @@ char *sh_name, int cnt, int n)
 	int hndCmd = 0;
 	(void)sh_name, (void)cnt, (void)n, (void)uInput;
 
-	if (my_cmp_str(commnd, "env") == 0)
+	if (my_cmp_strn(commnd, "env") == 0)
 	{
 		my_hand_envs();
 		hndCmd = 1;
 	}
-	else if (my_cmp_str(commnd, "setenv") == 0)
+	else if (my_cmp_strn(commnd, "setenv") == 0)
 	{
 		if (wordArr[1] && wordArr[2])
 			my_env_set(wordArr[1], wordArr[2], 1);
@@ -30,7 +30,7 @@ char *sh_name, int cnt, int n)
 			perror("Usage: setenv VARIABLE VALUE\n");
 		hndCmd = 1;
 	}
-	else if (my_cmp_str(commnd, "unsetenv") == 0)
+	else if (my_cmp_strn(commnd, "unsetenv") == 0)
 	{
 		if (wordArr[1])
 			my_unsetenvs(wordArr[1]);
@@ -38,7 +38,7 @@ char *sh_name, int cnt, int n)
 			perror("Usage: unsetenv VARIABLE\n");
 		hndCmd = 1;
 	}
-	else if (my_cmp_str(commnd, "cd") == 0)
+	else if (my_cmp_strn(commnd, "cd") == 0)
 	{
 		my_cd_comd(wordArr);
 		hndCmd = 1;

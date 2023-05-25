@@ -7,7 +7,7 @@
  * Return: void
 */
 
-void my_execommndewithexecve(char *commnde, char **wordArray)
+void my_execmdwithexecve(char *commnde, char **wordArray)
 {
 	if (execve(commnde, wordArray, NULL) == -1)
 	{

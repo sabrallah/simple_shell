@@ -1,5 +1,4 @@
 #include <stddef.h>
-deepping
 /**
  * my_cmp_str - bytes tht benn given by string.
  * @sttOne: character array stt.

@@ -33,7 +33,7 @@ int my_exec_cmd(char *uInput, char *shell, int contre)
 			my_free_world(wordArray, cmdNumber);
 			return (0);
 		}
-		if (my_cmp_str(wordArray[0], "exit") == 0)
+		if (my_cmp_strn(wordArray[0], "exit") == 0)
 		{
 			my_free_world(cmdArray, cmdNumber);
 			my_handle_exit(wordArray, uInput,

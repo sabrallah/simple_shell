@@ -11,7 +11,7 @@ void my_execute_bin(char **wordArray)
 	int current;
 
 	pidding = fork();
-	if (pid == 0)
+	if (pidding == 0)
 	{
 		my_execmdwithexecve("/bin/ls", wordArray);
 		perror("Error executing command\n");
@@ -47,7 +47,7 @@ char *shellN, int cntrr, int n)
 	if (wordArray)
 	{
 		commanding = wordArray[0];
-		if (my_cmp_str(commanding, "/bin/ls") == 0)
+		if (my_cmp_strn(commanding, "/bin/ls") == 0)
 		{
 			my_execute_bin(wordArray);
 			return (0);

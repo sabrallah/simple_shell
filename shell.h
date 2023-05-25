@@ -71,7 +71,7 @@ void my_swit_currdir(const char *drtrPointer);
 void my_execommndewithexecve(char *commnde, char **wordArray);
 
 /*cmprair function*/
-int my_cmp_str(const char *st1, const char *st2, size_t number);
+int my_cmp_strn(const char *one, const char *two);
 
 /*multiplee comandes*/
 int my_exec_cmd(char *uInput, char *shell, int contre);

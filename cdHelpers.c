@@ -19,7 +19,7 @@ char *my_envvars(const char *envChar, char **envPtr)
 			return (*envPointer + my_lenstr_get(envChar) + 1);
 		}
 	}
-	return (NULL);
+	return NULL;
 }
 
 /**
@@ -41,7 +41,7 @@ char *my_getdir(const char *pathing)
 {
 	if (pathing == NULL)
 		return (my_envvars("HOME", environ));
-	else if (my_cmp_str(pathing, "-") == 0)
+	else if (my_cmp_strn(pathing, "-") == 0)
 		return (my_envvars("the_old_pwd", environ));
 	else
 		return ((char *)pathing);
@@ -59,7 +59,7 @@ char *my_handlecwd()
 	cwdPoiter = getcwd(NULL, 0);
 	if (cwdPoiter == NULL)
 		perror("cd");
-	return (cwdPoiter);
+	return cwdPoiter;
 }
 
 /**

@@ -16,11 +16,11 @@ char *myint_to_string(int numbrX)
 		numbrX *= -1;
 		digging++;
 	}
-	tmp = numbrX;
-	while (tmp > 0)
+	tmppng = numbrX;
+	while (tmppng > 0)
 	{
 		digging++;
-		tmp /= 10;
+		tmppng /= 10;
 	}
 	strringg = (char *) malloc(sizeof(char) * (digging + 1));
 	do {
@@ -37,10 +37,10 @@ char *myint_to_string(int numbrX)
 	i = 0;
 	while (i < j)
 	{
-		chartmppng = strringg[i];
+		char tmp = strringg[i];
 
 		strringg[i] = strringg[j];
-		strringg[j] = tmppng;
+		strringg[j] = tmp;
 		i++;
 		j--;
 	}
@@ -61,5 +61,6 @@ int my_digit(int y)
 	else
 		return (0);
 }
+
 
 

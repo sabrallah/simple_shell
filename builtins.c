@@ -10,20 +10,15 @@
  */
 int execute_builtin(char **args)
 {
-if (strcmp(args[0], "exit") == 0)
+	if (strcmp(args[0], "exit") == 0)
 	{
-		free_char_array(args); /** Free memory allocated for args */
 		exit(0);
 	}
 	else if (strcmp(args[0], "env") == 0)
 	{
-		int result = print_env();
-		free_char_array(args); /** Free memory allocated for args */
-		return result;
+		return (print_env());
 	}
-
-	free_char_array(args); /** Free memory allocated for args */
-	return -1;
+	return (-1);
 }
 
 /**
@@ -34,12 +29,10 @@ if (strcmp(args[0], "exit") == 0)
  */
 int _exit_shell(char **args)
 {
-if (args[1] != NULL)
+	if (args[1] != NULL)
 	{
 		exit(atoi(args[1]));
 	}
-
-	free_char_array(args); /** Free memory allocated for args **/
 	exit(EXIT_SUCCESS);
 }
 
